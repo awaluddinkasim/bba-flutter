@@ -1,6 +1,8 @@
 import 'package:bba/pages/percakapan_detail/view.dart';
+import 'package:bba/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:just_audio/just_audio.dart';
 
 abstract class PercakapanHarianDetailController extends State<PercakapanHarianDetailScreen> {
   FlutterTts fTts = FlutterTts();
@@ -34,6 +36,13 @@ abstract class PercakapanHarianDetailController extends State<PercakapanHarianDe
         fTts.setLanguage(language);
       });
     });
+  }
+
+  Future play(String filename) async {
+    final player = AudioPlayer();
+    await player.setUrl("${Constants.baseURL}/percakapan/$filename");
+    await player.play();
+    await player.stop();
   }
 
   Future speak(String text) async {

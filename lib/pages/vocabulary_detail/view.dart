@@ -56,7 +56,7 @@ class _VocabularyDetailScreenState extends VocabularyDetailController {
                     ),
                     FilledButton(
                       onPressed: () {
-                        speak("${widget.vocabulary['kata']}");
+                        play("${widget.vocabulary['audio']}");
                       },
                       child: const Icon(Icons.volume_up),
                     ),

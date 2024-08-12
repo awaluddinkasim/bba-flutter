@@ -1,5 +1,6 @@
 import 'package:bba/pages/materi_detail/view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 abstract class MateriDetailController extends State<MateriDetailScreen> {
@@ -15,8 +16,22 @@ abstract class MateriDetailController extends State<MateriDetailScreen> {
       params: const YoutubePlayerParams(
         mute: false,
         strictRelatedVideos: true,
+        showFullscreenButton: true,
       ),
     );
+
+    controller.setFullScreenListener((isFullScreen) {
+      if (isFullScreen) {
+        SystemChrome.setPreferredOrientations([
+          DeviceOrientation.landscapeLeft,
+          DeviceOrientation.landscapeRight,
+        ]);
+      } else {
+        SystemChrome.setPreferredOrientations([
+          DeviceOrientation.portraitUp,
+        ]);
+      }
+    });
   }
 
   @override

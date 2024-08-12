@@ -15,9 +15,7 @@ abstract class VocabularyController extends ConsumerState<VocabularyScreen> {
   }
 
   void fetchVocabularies() async {
-    final token = ref.read(authProvider)!.token;
-
-    Response response = await dio(token: token).get('/kosakata?filter=${widget.filter}');
+    Response response = await dio().get('/kosakata?filter=${widget.filter}');
 
     if (response.statusCode == 200) {
       setState(() {

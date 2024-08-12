@@ -9,7 +9,7 @@ Dio dio({String? token}) {
   dio.options.headers['Content-Type'] = "application/json";
 
   if (token != null) {
-    dio.options.headers['Authorization'] = "Bearer $token";
+    // dio.options.headers['Authorization'] = "Bearer $token";
   }
 
   return dio;

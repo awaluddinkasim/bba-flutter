@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoadingScreen(),
+      home: const AppMain(),
     );
   }
 }
@@ -115,21 +115,12 @@ class _AppMainState extends State<AppMain> {
         PersistentTabConfig(
           screen: const SearchScreen(),
           item: ItemConfig(
-            icon: const Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-          ),
-        ),
-        PersistentTabConfig(
-          screen: const UserScreen(),
-          item: ItemConfig(
-            icon: const Icon(Icons.person),
-            title: "User",
+            icon: const Icon(Icons.search),
+            title: "Cari",
           ),
         ),
       ],
-      navBarBuilder: (navBarConfig) => Style13BottomNavBar(
+      navBarBuilder: (navBarConfig) => Style2BottomNavBar(
         navBarConfig: navBarConfig,
       ),
     );

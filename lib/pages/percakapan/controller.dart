@@ -15,9 +15,9 @@ abstract class PercakapanHarianController extends ConsumerState<PercakapanHarian
   }
 
   Future fetchPercakapan() async {
-    final token = ref.read(authProvider)!.token;
+    Response response = await dio().get('/percakapan-harian');
 
-    Response response = await dio(token: token).get('/percakapan-harian');
+    print(response);
 
     if (response.statusCode == 200) {
       setState(() {

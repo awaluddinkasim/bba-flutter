@@ -15,9 +15,7 @@ abstract class MateriController extends ConsumerState<MateriScreen> {
   }
 
   Future fetchMateri() async {
-    final token = ref.read(authProvider)!.token;
-
-    Response response = await dio(token: token).get("/materi");
+    Response response = await dio().get("/materi");
 
     if (response.statusCode == 200) {
       setState(() {

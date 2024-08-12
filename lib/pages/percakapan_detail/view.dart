@@ -57,7 +57,7 @@ class _PercakapanHarianDetailScreenState extends PercakapanHarianDetailControlle
                 ),
                 FilledButton.icon(
                   onPressed: () {
-                    speak("${widget.percakapan['arab']}");
+                    play("${widget.percakapan['audio']}");
                   },
                   icon: const Icon(Icons.volume_up),
                   label: const Text("Putar Suara"),
